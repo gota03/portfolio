@@ -29,6 +29,11 @@ html ::-webkit-scrollbar {
     background:  var(--cor-terciaria);
   }
 
+  ::selection {
+    color: var(--cor-secundaria); /* Cor do texto selecionado */
+    background-color: var(--cor-primaria); /* Cor de fundo do texto selecionado */
+}
+
 body{
     background-color: var(--cor-terciaria);
     background-image: url("../assets/background.png");
@@ -36,6 +41,8 @@ body{
     background-size: auto;
     box-sizing: border-box;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .cabecalho{
@@ -98,7 +105,7 @@ body{
     width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1rem;
 }
 
 .apresentacao__conteudo__completo{
@@ -193,6 +200,7 @@ body{
     display: flex;
     justify-content: space-around;
     gap: 3.12rem;
+    margin-top: 2rem;
 }
 
 .apresentacao__projetos__imagens{
@@ -252,16 +260,26 @@ body{
     left: 0;
     width: 100%;
     height: 0.18rem; /* Altura da linha */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse o elemento pai */
+}
+
+.rodape__borda::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Inicia fora da visão do elemento pai */
+    width: 200%; /* Garante que a animação tenha espaço para se mover */
+    height: 100%;
     background: linear-gradient(to right, rgba(255, 87, 127, 0), rgba(255, 87, 127, 1), rgba(255, 87, 127, 0));
-    animation: moverFeixe 2.4s linear infinite;
+    animation: moverFeixe 2s linear infinite; /* Ajustei o tempo da animação */
 }
 
 @keyframes moverFeixe {
     0% {
-        left: -100%;
+        transform: translateX(-100%); /* Começa no início do elemento pai */
     }
     100% {
-        left: 100%;
+        transform: translateX(100%); /* Move até o final do elemento pai */
     }
 }
 
@@ -274,62 +292,38 @@ body{
     font-weight: 400;
 }
 
-@keyframes lights {
-    0% {
-      color: hsl(230, 40%, 80%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.2),
-        0 0 0.125em hsla(320, 100%, 60%, 0.3),
-        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-    }
-    
-    30% { 
-      color: hsl(230, 80%, 90%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.5),
-        0 0 0.125em hsla(320, 100%, 60%, 0.5),
-        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-    }
-    
-    40% { 
-      color: hsl(230, 100%, 95%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.5),
-        0 0 0.125em hsla(320, 100%, 90%, 0.5),
-        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
-        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
-    }
-    
-    70% {
-      color: hsl(230, 80%, 90%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.5),
-        0 0 0.125em hsla(320, 100%, 60%, 0.5),
-        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-    }
-    
-    100% {
-      color: hsl(230, 40%, 80%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.2),
-        0 0 0.125em hsla(320, 100%, 60%, 0.3),
-        1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-        -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-    }
-    
-  }
-
-.rodape__texto {
-    margin: auto;
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    font-weight: 300;
-    animation: lights 5s 750ms linear infinite;
+.rodape__texto{
+    position: absolute;
+    margin-top: 1.5rem;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 12px 48px;
+    color: #ffffff;
+    background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+    white-space: nowrap;
 }
-
+    
+@keyframes shine{
+    0% {
+        background-position: 0px;
+      }  
+      50%{
+        background-position: 250px;
+      }
+      100%{
+        background-position: 450px;
+      }
+}
+  
 @media screen and (min-width: 320px) and (max-width: 399px) {
     .cabecalho{
         padding: 5% 0% 0% 4%;
@@ -395,60 +389,36 @@ body{
         width: 100%;
         border-radius: 1rem;
     }
-    @keyframes lights {
+    .rodape__texto{
+        position: absolute;
+        margin-top: 1.5rem;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 12px 48px;
+        color: #ffffff;
+        background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
+        background-position: 0;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s infinite linear;
+        animation-fill-mode: forwards;
+        -webkit-text-size-adjust: none;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+        
+    @keyframes shine{
         0% {
-          color: hsl(230, 40%, 80%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-        
-        30% { 
-          color: hsl(230, 80%, 90%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        40% { 
-          color: hsl(230, 100%, 95%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 90%, 0.5),
-            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
-            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        70% {
-          color: hsl(230, 80%, 90%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        100% {
-          color: hsl(230, 40%, 80%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-        
-      }
-
-    .rodape__texto {
-        margin: auto;
-        margin-top: 2rem;
-        font-size: 2rem;
-        font-weight: 300;
-        animation: lights 5s 750ms linear infinite;
+            background-position: 0px;
+          }  
+          50%{
+            background-position: 250px;
+          }
+          100%{
+            background-position: 450px;
+          }
     }
 }
 
@@ -519,60 +489,36 @@ body{
         width: 100%;
         border-radius: 1rem;
     }
-    @keyframes lights {
+    .rodape__texto{
+        position: absolute;
+        margin-top: 1.5rem;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 12px 48px;
+        color: #ffffff;
+        background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
+        background-position: 0;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s infinite linear;
+        animation-fill-mode: forwards;
+        -webkit-text-size-adjust: none;
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+        
+    @keyframes shine{
         0% {
-          color: hsl(230, 40%, 80%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-        
-        30% { 
-          color: hsl(230, 80%, 90%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        40% { 
-          color: hsl(230, 100%, 95%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 90%, 0.5),
-            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
-            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        70% {
-          color: hsl(230, 80%, 90%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        100% {
-          color: hsl(230, 40%, 80%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-        
-      }
-
-    .rodape__texto {
-        margin: auto;
-        margin-top: 2rem;
-        font-size: 1rem;
-        font-weight: 300;
-        animation: lights 5s 750ms linear infinite;
+            background-position: 0px;
+          }  
+          50%{
+            background-position: 250px;
+          }
+          100%{
+            background-position: 450px;
+          }
     }
 }
 
@@ -657,58 +603,35 @@ body{
     .rodape img{
         width: 10rem;
     }
-    @keyframes lights {
+    .rodape__texto{
+        position: absolute;
+        margin-top: 1.5rem;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 12px 48px;
+        color: #ffffff;
+        background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
+        background-position: 0;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s infinite linear;
+        animation-fill-mode: forwards;
+        -webkit-text-size-adjust: none;
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+        
+    @keyframes shine{
         0% {
-          color: hsl(230, 40%, 80%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-        
-        30% { 
-          color: hsl(230, 80%, 90%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        40% { 
-          color: hsl(230, 100%, 95%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 90%, 0.5),
-            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
-            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        70% {
-          color: hsl(230, 80%, 90%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-        
-        100% {
-          color: hsl(230, 40%, 80%);
-          text-shadow:
-            0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-        
-      }
-      .rodape__texto {
-        margin: auto;
-        margin-top: 2rem;
-        font-size: 2rem;
-        font-weight: 300;
-        animation: lights 5s 750ms linear infinite;
-      }
+            background-position: 0px;
+          }  
+          50%{
+            background-position: 250px;
+          }
+          100%{
+            background-position: 450px;
+          }
+    }
 }
