@@ -1,6 +1,6 @@
 let meus = "Meus";
 let projetos = "projetos ";
-let atraso = 180;
+let atraso = 150;
 
 let elementoMeus = document.querySelector(".apresentacao__conteudo__projetos");
 let elementoProjetos = document.querySelector(".titulo__destaque__projetos");

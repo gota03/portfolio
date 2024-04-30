@@ -1,84 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habilidades</title>
-    <link rel="stylesheet" href="style/index.css">
-    <link rel="shortcut icon" href="./assets/favicon_skills.png" type="image/x-icon">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style/index.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/skills.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
     <header class="cabecalho">
+      <nav class="cabecalho__menu">
+        <a href="index.html" class="cabecalho__menu__link">
+          <div class="cabecalho__menu__item">
+            <img src="./assets/home.png" alt="icone de uma casa rosa" />
+            <span>Home</span>
+          </div>
+        </a>
 
-        <nav class="cabecalho__menu">
+        <a href="skills.html" class="cabecalho__menu__link">
+          <div class="cabecalho__menu__item">
+            <img src="./assets/skills.png" alt="icone de uma tv rosa" />
+            <span>Habilidades</span>
+          </div>
+        </a>
 
-            <a href="index.html" class="cabecalho__menu__link">
-                <div class="cabecalho__menu__item">
-                    <img src="./assets/home.png" alt="icone de uma casa rosa">
-                    <span>Home</span>
-                </div>
-            </a>
-
-            <a href="skills.html" class="cabecalho__menu__link">
-                <div class="cabecalho__menu__item">
-                    <img src="./assets/skills.png" alt="icone de uma tv rosa">
-                    <span>Habilidades</span> 
-                </div>
-            </a>
-
-            <a href="projects.html" class="cabecalho__menu__link">
-                <div class="cabecalho__menu__item">
-                    <img src="./assets/projects.png" alt="icone de um coração rosa">
-                    <span>Projetos</span> 
-                </div>
-            </a>
-            
-        </nav>
-
+        <a href="projects.html" class="cabecalho__menu__link">
+          <div class="cabecalho__menu__item">
+            <img src="./assets/projects.png" alt="icone de um coração rosa" />
+            <span>Projetos</span>
+          </div>
+        </a>
+      </nav>
     </header>
 
     <main class="apresentacao">
+      <section class="apresentacao__conteudo">
+        <div class="apresentacao__conteudo__completo">
+          <h1 class="apresentacao__conteudo__minhas" id="minhas"></h1>
+          <strong
+            class="titulo__destaque__habilidades"
+            id="habilidades"
+          ></strong>
+        </div>
 
-        <section class="apresentacao__conteudo">
+        <p class="apresentacao__conteudo__paragrafo">
+          - Estou iniciando meus estudos em Python para Data Science
+        </p>
+        <p class="apresentacao__conteudo__paragrafo">- Trabalho em equipe</p>
+        <p class="apresentacao__conteudo__paragrafo">
+          - Desing de problemas e solução
+        </p>
+        <p class="apresentacao__conteudo__paragrafo">
+          - Inteligência emocional
+        </p>
+        <p class="apresentacao__conteudo__paragrafo">
+          - Comunicação clara e assertiva
+        </p>
 
-            <div class="apresentacao__conteudo__completo">
-
-                <h1 class="apresentacao__conteudo__minhas" id="minhas"></h1>
-                <strong class="titulo__destaque__habilidades" id="habilidades"></strong>
-
-            </div>
-
-            <p class="apresentacao__conteudo__paragrafo">-Concentro meus estudos em Java para Back-end</p>
-            <p class="apresentacao__conteudo__paragrafo">-Trabalho em equipe</p>
-            <p class="apresentacao__conteudo__paragrafo">-Desing de problemas e solução</p>
-            <p class="apresentacao__conteudo__paragrafo">-Inteligência emocional para trabalhar sob pressão</p>
-            <p class="apresentacao__conteudo__paragrafo">-Comunicação clara e assertiva</p>
-
-            <div class="apresentacao__links">
-
-                <a href="https://cursos.alura.com.br/user/mateus-m-oliveira2303" class="apresentacao__links__navegacao" target="_blank">
-                    <img src="./assets/certificados.png" alt="Icone de Certificados">
-                    Certificados
-                </a>
-
-            </div>
-
-        </section>
-        <img class="apresentacao__imagem" src="./assets/Group 14.png" alt="imagem">
-
+        <div class="apresentacao__links">
+          <a
+            href="https://cursos.alura.com.br/user/mateus-m-oliveira2303"
+            class="apresentacao__links__navegacao"
+            target="_blank"
+          >
+            <img src="./assets/certificados.png" alt="Icone de Certificados" />
+            <span>Certificados</span>
+          </a>
+        </div>
+      </section>
+      <img
+        class="apresentacao__imagem"
+        src="./assets/Group 14.png"
+        alt="imagem"
+      />
     </main>
 
     <div class="rodape__borda"></div>
 
     <footer class="rodape">
-        
-        <img src="./assets/Logo Alura Include.png" alt="logo da alura">
-        <p class="rodape__texto">Desenvolvido por Mateus Matos de Oliveira</p>
-
+      <img src="./assets/Logo Alura Include.png" alt="logo da alura" />
+      <p class="rodape__texto">Desenvolvido por Mateus Matos de Oliveira</p>
     </footer>
 
     <script src="./scripts/skills.js"></script>
-    
-</body>
+  </body>
 </html>

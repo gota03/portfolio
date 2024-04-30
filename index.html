@@ -1,88 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
     <title>Home</title>
-    <link rel="stylesheet" href="./style/index.css">
-    <link rel="shortcut icon" href="./assets/favicon_home.png" type="image/x-icon">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="shortcut icon" href="./assets/home.png" type="image/x-icon" />
+  </head>
+  <body>
     <header class="cabecalho">
+      <nav class="cabecalho__menu">
+        <a href="index.html" class="cabecalho__menu__link">
+          <div class="cabecalho__menu__item">
+            <img src="./assets/home.png" alt="icone de uma casa rosa" />
+            <span>Home</span>
+          </div>
+        </a>
 
-        <nav class="cabecalho__menu">
+        <a href="skills.html" class="cabecalho__menu__link">
+          <div class="cabecalho__menu__item">
+            <img src="./assets/skills.png" alt="icone de uma tv rosa" />
+            <span>Habilidades</span>
+          </div>
+        </a>
 
-            <a href="index.html" class="cabecalho__menu__link">
-                <div class="cabecalho__menu__item">
-                    <img src="./assets/home.png" alt="icone de uma casa rosa">
-                    <span>Home</span>
-                </div>
-            </a>
-
-            <a href="skills.html" class="cabecalho__menu__link">
-                <div class="cabecalho__menu__item">
-                    <img src="./assets/skills.png" alt="icone de uma tv rosa">
-                    <span>Habilidades</span> 
-                </div>
-            </a>
-
-            <a href="projects.html" class="cabecalho__menu__link">
-                <div class="cabecalho__menu__item">
-                    <img src="./assets/projects.png" alt="icone de um coração rosa">
-                    <span>Projetos</span> 
-                </div>
-            </a>
-            
-        </nav>
-
+        <a href="projects.html" class="cabecalho__menu__link">
+          <div class="cabecalho__menu__item">
+            <img src="./assets/projects.png" alt="icone de um coração rosa" />
+            <span>Projetos</span>
+          </div>
+        </a>
+      </nav>
     </header>
 
     <main class="apresentacao">
+      <section class="apresentacao__conteudo">
+        <div class="apresentacao__conteudo__completo">
+          <h1 class="apresentacao__conteudo__nome" id="nome-autor"></h1>
+          <strong class="titulo__destaque__nome" id="sobrenome-autor"></strong>
+        </div>
 
-        <section class="apresentacao__conteudo">
+        <p class="apresentacao__conteudo__paragrafo">
+          Olá, tenho 21 anos e sou um estudante de programação. Atualmente curso
+          Sistemas de informação na UNDB e estou no 3º período. Obtive minha
+          primeira experiência profissional na startup Blue Marble onde fiquei
+          por 8 meses.
+        </p>
 
-            <div class="apresentacao__conteudo__completo">
+        <div class="apresentacao__links">
+          <h2 class="apresentacao__links__subtitulo">Acesse minhas redes</h2>
 
-                <h1 class="apresentacao__conteudo__nome" id="nome-autor"></h1>
-                <strong class="titulo__destaque__nome" id="sobrenome-autor"></strong>
+          <a
+            href="https://github.com/gota03"
+            class="apresentacao__links__navegacao"
+            target="_blank"
+          >
+            <img src="./assets/githubg.png" alt="Logo do Github" />
+            <span>Github</span>
+          </a>
 
-            </div>
+          <a
+            href="https://www.linkedin.com/in/mateus-matos-de-oliveira-729515232/"
+            class="apresentacao__links__navegacao"
+            target="_blank"
+          >
+            <img src="./assets/linkedin.png" alt="Logo do Linkedin" />
+            <span>Linkedin</span>
+          </a>
+        </div>
+      </section>
 
-            <p class="apresentacao__conteudo__paragrafo">Olá, tenho 21 anos e sou um estudante de programação. Atualmente curso Sistemas de informação na UNDB e estou no 3º período. Obtive minha primeira experiência profissional na startup Blue Marble onde fiquei por 8 meses. 
-            </p>
-
-            <div class="apresentacao__links">
-
-                <h2 class="apresentacao__links__subtitulo">Acesse minhas redes</h2>
-
-                <a href="https://github.com/gota03" class="apresentacao__links__navegacao" target="_blank">
-                    <img src="./assets/githubg.png" alt="Logo do Github">
-                    <span>Github</span> 
-                </a>
-
-                <a href="https://www.linkedin.com/mwlite/profile/me?trk=p_mwlite_feed_updates-secondary_nav" class="apresentacao__links__navegacao" target="_blank">
-                    <img src="./assets/linkedin.png" alt="Logo do Linkedin">
-                    <span>Linkedin</span> 
-                </a>
-
-            </div>
-
-        </section>
-
-        <img class="apresentacao__imagem__pessoal" src="./assets/imagem_pessoal.png" alt="foto do mateus">
-
+      <img
+        class="apresentacao__imagem__pessoal"
+        src="./assets/imagem_pessoal.png"
+        alt="foto do mateus"
+      />
     </main>
 
     <div class="rodape__borda"></div>
-    
+
     <footer class="rodape">
-        
-        <img src="./assets/Logo Alura Include.png" alt="logo da alura">
-        <p class="rodape__texto">Desenvolvido por Mateus Matos de Oliveira</p>
+      <img src="./assets/Logo Alura Include.png" alt="logo da alura" />
+      <p class="rodape__texto">Desenvolvido por Mateus Matos de Oliveira</p>
     </footer>
 
     <script src="./scripts/index.js"></script>
-
-</body>
+  </body>
 </html>
